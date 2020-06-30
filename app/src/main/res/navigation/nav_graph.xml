@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.yaramobile.batmanmovies.ui.main.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_moviesListFragment"
+            app:destination="@id/moviesListFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/moviesListFragment"
+        android:name="com.yaramobile.batmanmovies.ui.movies.MoviesListFragment"
+        android:label="fragment_movies_list"
+        tools:layout="@layout/fragment_movies_list" >
+        <action
+            android:id="@+id/action_moviesListFragment_to_movieDetailFragment"
+            app:destination="@id/movieDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.yaramobile.batmanmovies.ui.detail.MovieDetailFragment"
+        android:label="fragment_movie_detail"
+        tools:layout="@layout/fragment_movie_detail" >
+
+
+        <argument
+            android:name="movieId"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

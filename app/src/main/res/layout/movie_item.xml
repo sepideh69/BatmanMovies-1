@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movie"
+            type="com.yaramobile.batmanmovies.database.DatabaseMovieDetail" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/movie_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@color/background"
+        android:paddingBottom="4dp"
+
+        >
+
+
+        <ImageView
+            android:id="@+id/img_movie_poster"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txv_movie_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:moviePoster="@{movie.poster}" />
+
+        <TextView
+            android:id="@+id/txv_movie_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{movie.title}"
+            app:layout_constraintTop_toBottomOf="@id/img_movie_poster"
+            app:layout_constraintBottom_toTopOf="@id/txv_movie_year"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/margin_text_vertical"
+            android:paddingHorizontal="@dimen/paddind_text_horizental"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            />
+
+        <TextView
+            android:id="@+id/txv_movie_year"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{@string/year(movie.year)}"
+            app:layout_constraintTop_toBottomOf="@id/txv_movie_title"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginVertical="@dimen/margin_text_vertical"
+            android:paddingHorizontal="@dimen/paddind_text_horizental"
+            android:textColor="@color/white"
+
+
+
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

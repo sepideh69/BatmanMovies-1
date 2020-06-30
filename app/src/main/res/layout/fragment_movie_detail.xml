@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.yaramobile.batmanmovies.ui.detail.MovieDetailViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.detail.MovieDetailFragment"
+        >
+
+        <include
+            android:id="@+id/included_toolbar"
+            layout="@layout/toolbar_layout" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/included_toolbar"
+            android:background="@color/black">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cst_detail_top_holder"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/black"
+                    >
+
+                    <ImageView
+                        android:id="@+id/movie_detail_poster"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintWidth_percent=".3"
+                        android:layout_margin="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/movie_detail_title"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:moviePoster="@{viewmodel.movieDetail.poster}"
+                        app:layout_constraintHorizontal_chainStyle="spread"
+
+                        />
+                    <TextView
+                        android:id="@+id/movie_detail_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@id/movie_detail_poster"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/movie_detail_year"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        android:textColor="@color/white"
+                        tools:text="title of movie"
+                        android:text="@{viewmodel.movieDetail.title }"
+                        android:paddingHorizontal="@dimen/paddind_text_horizental"
+                        android:layout_marginVertical="@dimen/margin_text_vertical"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+
+                        />
+                    <TextView
+                        android:id="@+id/movie_detail_year"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@id/movie_detail_poster"
+                        app:layout_constraintTop_toBottomOf="@id/movie_detail_title"
+                        app:layout_constraintBottom_toTopOf="@id/movie_detail_director"
+                        android:textColor="@color/white"
+                        tools:text="year of movie"
+                        android:text='@{@string/detailYear(viewmodel.movieDetail.year )}'
+                        android:paddingHorizontal="@dimen/paddind_text_horizental"
+                        android:layout_marginVertical="@dimen/margin_text_vertical"/>
+                    <TextView
+                        android:id="@+id/movie_detail_director"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toEndOf="@id/movie_detail_poster"
+                        app:layout_constraintTop_toBottomOf="@id/movie_detail_year"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:textColor="@color/white"
+                        tools:text="director of movie"
+                        android:text='@{viewmodel.movieDetail.director != null ? @string/director(viewmodel.movieDetail.director ) : ""}'
+                        android:paddingHorizontal="@dimen/paddind_text_horizental"
+                        android:layout_marginVertical="@dimen/margin_text_vertical"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:id="@+id/movie_detail_released"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cst_detail_top_holder"
+                    app:layout_constraintBottom_toTopOf="@id/movie_detail_rated"
+                    android:textColor="@color/white"
+                    tools:text="released : "
+                    android:text='@{viewmodel.movieDetail.released != null ? @string/released(viewmodel.movieDetail.released ) : ""}'
+                    android:paddingHorizontal="@dimen/paddind_text_horizental"
+                    android:layout_marginVertical="@dimen/margin_text_vertical"
+                    app:layout_constraintVertical_bias="0"/>
+                <TextView
+                    android:id="@+id/movie_detail_rated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/movie_detail_released"
+                    app:layout_constraintBottom_toTopOf="@id/movie_detail_runtime"
+                    android:textColor="@color/white"
+                    tools:text="rated : "
+                    android:text='@{viewmodel.movieDetail.rated != null ? @string/rated(viewmodel.movieDetail.rated ) : ""}'
+                    android:paddingHorizontal="@dimen/paddind_text_horizental"
+                    android:layout_marginVertical="@dimen/margin_text_vertical"/>
+                <TextView
+                    android:id="@+id/movie_detail_runtime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/movie_detail_rated"
+                    app:layout_constraintBottom_toTopOf="@id/movie_detail_genre"
+                    android:textColor="@color/white"
+                    tools:text="released : "
+                    android:text='@{viewmodel.movieDetail.released != null ? @string/released(viewmodel.movieDetail.released ) : ""}'
+                    android:paddingHorizontal="@dimen/paddind_text_horizental"
+                    android:layout_marginVertical="@dimen/margin_text_vertical"/>
+                <TextView
+                    android:id="@+id/movie_detail_genre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/movie_detail_runtime"
+                    app:layout_constraintBottom_toTopOf="@id/movie_detail_writer"
+                    android:textColor="@color/white"
+                    tools:text="genre : "
+                    android:text='@{viewmodel.movieDetail.genre != null ? @string/genre(viewmodel.movieDetail.writer ) : ""}'
+                    android:paddingHorizontal="@dimen/paddind_text_horizental"
+                    android:layout_marginVertical="@dimen/margin_text_vertical"/>
+                <TextView
+                    android:id="@+id/movie_detail_writer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/movie_detail_genre"
+                    app:layout_constraintBottom_toTopOf="@id/movie_detail_actors"
+                    android:textColor="@color/white"
+                    tools:text="writer : "
+                    android:text='@{viewmodel.movieDetail.writer != null ? @string/writer(viewmodel.movieDetail.writer ) : ""}'
+                    android:paddingHorizontal="@dimen/paddind_text_horizental"
+                    android:layout_marginVertical="@dimen/margin_text_vertical"/>
+                <TextView
+                    android:id="@+id/movie_detail_actors"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/movie_detail_writer"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:textColor="@color/white"
+                    tools:text="actors : "
+                    android:text='@{viewmodel.movieDetail.actors != null ? @string/actors(viewmodel.movieDetail.actors ) : "" }'
+                    android:paddingHorizontal="@dimen/paddind_text_horizental"
+                    android:layout_marginVertical="@dimen/margin_text_vertical"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:layout_centerInParent="true"
+            android:id="@+id/progress"
+            android:visibility="gone"
+            style="@style/SpinKitView.Circle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/colorPrimary"
+            app:requestStatus="@{viewmodel._requestStatus}"/>
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BatmanMovies</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="year">( %s )</string>
+    <string name="detailYear"> year : ( %s ) </string>
+    <string name="director"> director : %s </string>
+    <string name="released"> released : %s </string>
+    <string name="rated"> rated : %s </string>
+    <string name="runtime"> runtime : %s </string>
+    <string name="genre"> genre : %s </string>
+    <string name="writer"> writer : %s </string>
+    <string name="actors"> actors : %s </string>
+    <string name="error_get_data">اشکال در دریافت اطلاعات</string>
+    <string name="error_refresh_data">خطا در بروز رسانی اطلاعات</string>
+</resources>
