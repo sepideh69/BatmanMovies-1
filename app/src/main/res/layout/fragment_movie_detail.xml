@@ -147,7 +147,7 @@
                     app:layout_constraintBottom_toTopOf="@id/movie_detail_writer"
                     android:textColor="@color/white"
                     tools:text="genre : "
-                    android:text='@{viewmodel.movieDetail.genre != null ? @string/genre(viewmodel.movieDetail.writer ) : ""}'
+                    android:text='@{viewmodel.movieDetail.genre != null ? @string/genre(viewmodel.movieDetail.genre) : ""}'
                     android:paddingHorizontal="@dimen/paddind_text_horizental"
                     android:layout_marginVertical="@dimen/margin_text_vertical"/>
                 <TextView
