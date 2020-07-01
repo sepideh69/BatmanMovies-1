@@ -18,10 +18,12 @@ class DetailRepository(val database: MovieDatabase, val movieId: String) {
     val statusValue = MutableLiveData<ApiStatus>()
 
     init {
+
         statusValue.value = ApiStatus.LOADING
     }
 
     suspend fun refreshDetail(id: String) {
+
         withContext(Dispatchers.IO) {
             val deferred = TheApi.retrofitService.getDetail(Constant.API_KEY, id)
             try {

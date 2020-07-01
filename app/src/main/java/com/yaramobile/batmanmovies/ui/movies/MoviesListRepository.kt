@@ -1,6 +1,7 @@
 package com.yaramobile.b
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.yaramobile.batmanmovies.database.MovieDatabase

@@ -1,6 +1,7 @@
 package com.yaramobile.batmanmovies.ui.movies
 
 import android.app.Application
+import android.util.Log
 import com.yaramobile.b.MoviesListRepository
 import com.yaramobile.batmanmovies.utils.BaseViewModel
 import kotlinx.coroutines.CoroutineScope
@@ -17,9 +18,11 @@ class MoviesListViewModel(app: Application) : BaseViewModel(app) {
     var scop = CoroutineScope(job + Dispatchers.Main)
 
     init {
-        _requestStatus=repository.statusValue
+
+        _requestStatus= repository.statusValue
+
         scop.launch {
-            _requestStatus= repository.statusValue
+
             repository.refreshMovies()
         }
 

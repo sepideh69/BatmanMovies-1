@@ -41,7 +41,7 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 }
 
 @BindingAdapter("requestStatus")
-fun setRequestStatus(progressBar : ProgressBar , status: ApiStatus){
+fun setRequestStatus(progressBar : ProgressBar , status: ApiStatus ){
     val context : Context=progressBar.context
     when (status) {
         ApiStatus.LOADING -> {
