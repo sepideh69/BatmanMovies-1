@@ -35,14 +35,9 @@ class DetailRepository(val database: MovieDatabase, val movieId: String) {
 
             } catch (e: Exception) {
 
-                if (movieDetail.value?.actors == null) {
+                statusValue.postValue(ApiStatus.NOTREFRESH)
 
-                    //when detail info haven't stored on room yet , until now
-                    statusValue.postValue(ApiStatus.ERROR)
-                } else {
-                    //when detail info have been stored on room but can't get refreshed
-                    statusValue.postValue(ApiStatus.NOTREFRESH)
-                }
+            }
 
 
             }
@@ -52,4 +47,3 @@ class DetailRepository(val database: MovieDatabase, val movieId: String) {
 
     }
 
-}
