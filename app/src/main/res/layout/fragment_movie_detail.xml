@@ -134,8 +134,8 @@
                     app:layout_constraintTop_toBottomOf="@id/movie_detail_rated"
                     app:layout_constraintBottom_toTopOf="@id/movie_detail_genre"
                     android:textColor="@color/white"
-                    tools:text="released : "
-                    android:text='@{viewmodel.movieDetail.released != null ? @string/released(viewmodel.movieDetail.released ) : ""}'
+                    tools:text="runtime : "
+                    android:text='@{viewmodel.movieDetail.runtime != null ? @string/runtime(viewmodel.movieDetail.runtime ) : ""}'
                     android:paddingHorizontal="@dimen/paddind_text_horizental"
                     android:layout_marginVertical="@dimen/margin_text_vertical"/>
                 <TextView
